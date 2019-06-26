@@ -1,5 +1,5 @@
 import { takeEvery, takeLatest } from "redux-saga";
-import { call, put } from "@redux-saga/core";
+import { call, put } from "redux-saga/effects";
 import axios from "axios";
 import _ from "lodash";
 
