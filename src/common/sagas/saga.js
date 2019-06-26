@@ -63,20 +63,6 @@ export function* getProductDataAsync() {
   }
 }
 
-export function* getUserDataByIdAsync(val) {
-  try {
-    console.log("saga worker running by id", val.id);
-    // const response = yield call(axios.get, "https://gorest.co.in/public-api/users?_format=json");
-    const response = yield call(axios.get, "/product_data.json");
-    yield put({
-      type: "GET_USER_DATA_BY_ID_ASYNC",
-      val: _.find(response.data, { id: val.id })
-    });
-  } catch (e) {
-    console.log("saga worker falied");
-  }
-}
-
 export function* loginUserAsync(val) {
   try {
     // const response = yield call(axios.get, "https://gorest.co.in/public-api/users?_format=json");
@@ -99,13 +85,8 @@ export function* loginUserAsync(val) {
 
 //watcher saga
 export function* watchGetUserData() {
-  // console.log("saga running");
+  console.log("saga running 234");
   yield takeEvery("GET_PRODUCT_DATA", getProductDataAsync);
-}
-
-export function* watchGetUserDataById() {
-  // console.log("saga called ib id", action);
-  yield takeLatest("GET_USER_DATA_BY_ID", getUserDataByIdAsync);
 }
 
 export function* watchLogin() {
@@ -115,5 +96,5 @@ export function* watchLogin() {
 
 //root saga
 export default function* rootSaga() {
-  yield [watchGetUserData(), watchGetUserDataById(), watchLogin()];
+  yield [watchGetUserData(), watchLogin()];
 }

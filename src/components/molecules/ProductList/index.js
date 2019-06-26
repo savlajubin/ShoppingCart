@@ -20,12 +20,12 @@ class ProductList extends Component {
     const ProductDataList =
       productData && productData.length ? (
         productData.map(p => {
-          return (
-            <div className="row m-1 border-bottom border-warning" key={p.id}>
-              <div className="col-sm-4">
-                <Product productDetail={p} key={p.productName} />
-              </div>
+          return p.isPublished === "true" ? (
+            <div className="col-sm-4">
+              <Product productDetail={p} key={p.productName} />
             </div>
+          ) : (
+            ""
           );
         })
       ) : (
@@ -38,7 +38,7 @@ class ProductList extends Component {
           <div className="col-12 text-left">
             <span>Product List</span>
           </div>
-          <div className="col-12">{ProductDataList}</div>
+          <div className="row">{ProductDataList}</div>
         </div>
       </div>
     );
