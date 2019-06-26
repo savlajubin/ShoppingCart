@@ -1,0 +1,1 @@
+export { customerInfoReducer as productInfo } from './productReducer';
