@@ -10,7 +10,7 @@ import {
 class CartItem extends Component {
 
   render() {
-    const { productDetail } = this.props;
+    const { productDetail, removeFromCart } = this.props;
     return (
       <div>
         {productDetail.productName}
