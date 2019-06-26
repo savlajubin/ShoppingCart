@@ -1,32 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { getProductData, updateProduct } from "../../../common/actions";
+import { getProductData } from "../../../common/actions";
 
 import Product from "../../atoms/Product";
 
+import d from "/public/product_data";
+
 class ProductList extends Component {
   componentDidMount() {
-    this.props.getProductData(this.props.match.params.id);
+    this.props.getProductData();
   }
 
   render() {
-    console.log("dash prop", this.props);
-    let { productData } = this.props;
+    console.log("productlist prop", this.props);
+    // let { productData } = this.props;
+    let productData = d;
 
-    const ProductDataList = productData.length ? (
-      productData.map(p => {
-        return (
-          <div className="row m-1 border-bottom border-warning" key={p.id}>
-            <div className="col-sm-4">
-              <Product productDetail={p} />
+    const ProductDataList =
+      productData && productData.length ? (
+        productData.map(p => {
+          return (
+            <div className="row m-1 border-bottom border-warning" key={p.id}>
+              <div className="col-sm-4">
+                <Product productDetail={p} key={p.productName} />
+              </div>
             </div>
-          </div>
-        );
-      })
-    ) : (
-      <div>No Products</div>
-    );
+          );
+        })
+      ) : (
+        <div>No Products</div>
+      );
 
     return (
       <div>
@@ -48,8 +52,7 @@ const mapStoreToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getProductData: () => dispatch(getProductData()),
-    updateUser: () => dispatch(updateProduct())
+    getProductData: () => dispatch(getProductData())
   };
 };
 

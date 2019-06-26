@@ -1,1 +1,3 @@
-export { customerInfoReducer as productInfo } from './productReducer';
+import { productInfoReducer as productInfo } from "./productReducer";
+
+export { productInfo };

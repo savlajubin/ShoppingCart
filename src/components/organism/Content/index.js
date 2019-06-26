@@ -18,9 +18,7 @@ class Content extends Component {
         <Col xs="9">
           <ProductList />
         </Col>
-        <Col xs="3">
-          <Cart />
-        </Col>
+        <Col xs="3">{/* <Cart /> */}</Col>
       </div>
     );
   }

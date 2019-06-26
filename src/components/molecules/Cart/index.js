@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getProductData, updateProduct } from "../../../common/actions";
+import { getProductData } from "../../../common/actions";
 
 class Cart extends Component {
   // componentDidMount() {
@@ -28,8 +28,7 @@ const mapStoreToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getUserData: () => dispatch(getProductData()),
-    updateUser: () => dispatch(updateProduct())
+    getUserData: () => dispatch(getProductData())
   };
 };
 
