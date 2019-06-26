@@ -1,5 +1,6 @@
+import _ from 'lodash';
+
 const initialState = {
-  cartData: {},
   productData: [
     {
       isPublished: "true",
@@ -47,15 +48,33 @@ const initialState = {
 };
 
 const productInfoReducer = (state = initialState, action) => {
+  let oldProductState, updatedProductIndex;
+console.log(11223344,action)
   switch (action.type) {
     case "GET_PRODUCT_DATA_FROM_API":
-    console.log('state',state)
       return {
         ...state,
         productData: action.val
       }
+    case "ADD_TO_CART":
+      oldProductState = JSON.parse(JSON.stringify(state.productData));
+      updatedProductIndex = _.findIndex(oldProductState, { productName: action.val.productName });
+      oldProductState[updatedProductIndex].addedToCart = true;
+      return {
+        ...state,
+        productData: oldProductState
+      }
+    case "REMOVE_FROM_CART":
+      console.log('jubin')
+      oldProductState = JSON.parse(JSON.stringify(state.productData));
+      updatedProductIndex = _.findIndex(oldProductState, { productName: action.val.productName });
+      oldProductState[updatedProductIndex].addedToCart = false;
+      return {
+        ...state,
+        productData: oldProductState
+      }
     case "GET_CART_DATA":
-      return state.cartData;
+      return state.productData;
     default:
       return state;
   }

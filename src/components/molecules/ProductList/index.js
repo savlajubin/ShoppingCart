@@ -17,9 +17,9 @@ class ProductList extends Component {
     const ProductDataList =
       productData && productData.length ? (
         productData.map(p => {
-          return p.isPublished === "true" ? (
-            <div className="col-sm-4">
-              <Product productDetail={p} key={p.productName} />
+          return (p.isPublished === "true" && !p.addedToCart) ? (
+            <div className="col-sm-4" key={p.productName}>
+              <Product productDetail={p} />
             </div>
           ) : (
             ""
@@ -44,7 +44,7 @@ class ProductList extends Component {
 
 const mapStoreToProps = state => {
   return {
-    productData: state.productData
+    productData: state.product.productData
   };
 };
 const mapDispatchToProps = dispatch => {

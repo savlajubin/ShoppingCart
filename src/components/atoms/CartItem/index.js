@@ -1,28 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { removeFromCart } from "../../../common/actions";
+
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
   Button
 } from "reactstrap";
 
-class ProductList extends Component {
-  // componentDidMount() {
-  //   this.props.getUserData(this.props.match.params.id);
-  // }
+class CartItem extends Component {
 
   render() {
     const { productDetail } = this.props;
     return (
       <div>
         {productDetail.productName}
+        <Button onClick={() => {
+          removeFromCart(productDetail)
+        }}>
+          Remove
+        </Button>
       </div>
     );
   }
 }
 
-export default ProductList;
+const mapStoreToProps = state => {
+  return {
+    productData: state.product.productData
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    removeFromCart: (productDetail) => dispatch(removeFromCart(productDetail))
+  };
+};
+
+export default connect(
+  mapStoreToProps,
+  mapDispatchToProps
+)(CartItem);

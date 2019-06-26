@@ -10,13 +10,15 @@ import {
   Button
 } from "reactstrap";
 
-class ProductList extends Component {
+import { addToCart } from "../../../common/actions";
+
+class Product extends Component {
   // componentDidMount() {
   //   this.props.getUserData(this.props.match.params.id);
   // }
 
   render() {
-    const { productDetail } = this.props;
+    const { productDetail, addToCart } = this.props;
     return (
       <div>
         <Card>
@@ -25,11 +27,15 @@ class ProductList extends Component {
             <CardImg
               top
               width="100%"
-              src={productDetail.image}
+              src={productDetail.productImageXX}
               alt={productDetail.productName}
             />
             <CardText>{productDetail.price}</CardText>
-            <Button>Button</Button>
+            <Button onClick={() => {
+              addToCart(productDetail)
+            }}>
+            Add to cart
+            </Button>
           </CardBody>
         </Card>
       </div>
@@ -37,4 +43,18 @@ class ProductList extends Component {
   }
 }
 
-export default ProductList;
+const mapStoreToProps = state => {
+  return {
+    // productData: state.product.productData
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: (productDetail) => dispatch(addToCart(productDetail))
+  };
+};
+
+export default connect(
+  mapStoreToProps,
+  mapDispatchToProps
+)(Product);

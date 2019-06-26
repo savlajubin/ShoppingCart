@@ -1,6 +1,5 @@
-import { takeEvery, takeLatest, call, put } from "redux-saga/effects";
+import { takeEvery, call, put } from "redux-saga/effects";
 import axios from "axios";
-import _ from "lodash";
 
 //worker saga
 export function* getProductDataAsync() {
