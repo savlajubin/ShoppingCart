@@ -8,10 +8,6 @@ import { getProductData } from "../../../common/actions";
 import { ProductList, Cart } from "../../molecules";
 
 class Content extends Component {
-  // componentDidMount() {
-  //   this.props.getProductData();
-  // }
-
   render() {
     return (
       <div className="row">

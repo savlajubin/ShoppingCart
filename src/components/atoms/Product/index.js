@@ -13,9 +13,6 @@ import {
 import { addToCart } from "../../../common/actions";
 
 class Product extends Component {
-  // componentDidMount() {
-  //   this.props.getUserData(this.props.match.params.id);
-  // }
 
   render() {
     const { productDetail, addToCart } = this.props;
