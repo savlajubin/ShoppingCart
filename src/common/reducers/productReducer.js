@@ -1,4 +1,5 @@
 const initialState = {
+  cartData: {},
   productData: [
     {
       isPublished: "true",
@@ -48,7 +49,10 @@ const initialState = {
 export const productInfoReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_PRODUCT_DATA_FROM_API":
-      return state.set("productData", action.val);
+      state.set("productData", action.val);
+      return state;
+    case "GET_CART_DATA":
+      return state.cartData;
     default:
       return state;
   }

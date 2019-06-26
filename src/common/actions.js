@@ -1,8 +1,8 @@
 import {
   getProductData,
-  getProductDataById,
+  getcartData,
   updateProductData,
   updateCart
 } from "./actions/productAction";
 
-export { getProductData, getProductDataById, updateProductData, updateCart };
+export { getProductData, getcartData, updateProductData, updateCart };

@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import {
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  Button
+} from "reactstrap";
+
 class ProductList extends Component {
   // componentDidMount() {
   //   this.props.getUserData(this.props.match.params.id);
@@ -10,17 +19,19 @@ class ProductList extends Component {
     const { productDetail } = this.props;
     return (
       <div>
-        <div className="row">
-          <div className="col-12 text-center">
-            <span>{productDetail.productName}</span>
-          </div>
-          <div className="col-12 text-center">
-            <img src={productDetail.image} alt={productDetail.productName} />
-          </div>
-          <div className="col-12 text-center">
-            <span>{productDetail.price}</span>
-          </div>
-        </div>
+        <Card>
+          <CardBody>
+            <CardTitle>{productDetail.productName}</CardTitle>
+            <CardImg
+              top
+              width="100%"
+              src={productDetail.image}
+              alt={productDetail.productName}
+            />
+            <CardText>{productDetail.price}</CardText>
+            <Button>Button</Button>
+          </CardBody>
+        </Card>
       </div>
     );
   }
