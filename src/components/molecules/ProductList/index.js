@@ -5,8 +5,6 @@ import { getProductData } from "../../../common/actions";
 
 import Product from "../../atoms/Product";
 
-import d from "/public/product_data";
-
 class ProductList extends Component {
   componentDidMount() {
     this.props.getProductData();
@@ -14,8 +12,7 @@ class ProductList extends Component {
 
   render() {
     console.log("productlist prop", this.props);
-    // let { productData } = this.props;
-    let productData = d;
+    let { productData } = this.props;
 
     const ProductDataList =
       productData && productData.length ? (

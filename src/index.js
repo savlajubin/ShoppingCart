@@ -8,7 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.scss";
 
-import mainReducer from "./common/reducers";
+import mainReducer from "./common/reducersIndex";
 import mainSaga from "./common/sagas/saga";
 
 import MainContainer from "./components/organism/MainContainer";

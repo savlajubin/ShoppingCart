@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getcartData } from "../../../common/actions";
+import CartItem from "../../atoms/CartItem";
 
 class Cart extends Component {
   componentDidMount() {
@@ -39,7 +40,7 @@ class Cart extends Component {
         cartData.map(c => {
           return c.isPublished === "true" ? (
             <div className="col-sm-4">
-              <Product productDetail={p} key={c.productName} />
+              <CartItem productDetail={c} key={c.productName} />
             </div>
           ) : (
             ""
@@ -56,7 +57,7 @@ class Cart extends Component {
             <span>Shopping Cart</span>
           </div>
         </div>
-        <div class="shopping-cart-wrapper">
+        <div className="shopping-cart-wrapper">
           <div className="row">
             <div className="col-12 text-center" />
           </div>

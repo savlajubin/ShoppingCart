@@ -46,14 +46,19 @@ const initialState = {
   ]
 };
 
-export const productInfoReducer = (state = initialState, action) => {
+const productInfoReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_PRODUCT_DATA_FROM_API":
-      state.set("productData", action.val);
-      return state;
+    console.log('state',state)
+      return {
+        ...state,
+        productData: action.val
+      }
     case "GET_CART_DATA":
       return state.cartData;
     default:
       return state;
   }
 };
+
+export default productInfoReducer
