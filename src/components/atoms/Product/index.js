@@ -26,11 +26,10 @@ class Product extends Component {
             <CardTitle>{productDetail.productName}</CardTitle>
             <CardImg
               top
-              width="100%"
-              src={productDetail.productImageXX}
+              src={productDetail.productImage}
               alt={productDetail.productName}
             />
-            <CardText>{productDetail.price}</CardText>
+            <CardText>${productDetail.price}</CardText>
             <Button onClick={() => {
               addToCart(productDetail)
             }}>

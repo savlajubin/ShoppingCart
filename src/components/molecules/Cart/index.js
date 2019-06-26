@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 
 import CartItem from "../../atoms/CartItem";
 
+import _ from "lodash";
+
 class Cart extends Component {
 
   render() {
     let { cartData } = this.props;
+    let itemsInCart = _.countBy(cartData, 'addedToCart');
 
     return (
       <div>
@@ -18,10 +21,10 @@ class Cart extends Component {
         <div className="shopping-cart-wrapper">
           <div className="row">
             <div className="col-12 text-center">
-              {cartData && cartData.length ? (
+              {itemsInCart.true ? (
                 cartData.map(c => {
                   return c.addedToCart ? (
-                    <div className="col-sm-4" key={c.productName}>
+                    <div key={c.productName}>
                       <CartItem productDetail={c} />
                     </div>
                   ) : (

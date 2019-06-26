@@ -18,7 +18,7 @@ class ProductList extends Component {
       productData && productData.length ? (
         productData.map(p => {
           return (p.isPublished === "true" && !p.addedToCart) ? (
-            <div className="col-sm-4" key={p.productName}>
+            <div className="col-sm-4 margin-s-b" key={p.productName}>
               <Product productDetail={p} />
             </div>
           ) : (

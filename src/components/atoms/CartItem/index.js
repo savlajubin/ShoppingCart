@@ -12,13 +12,17 @@ class CartItem extends Component {
   render() {
     const { productDetail, removeFromCart } = this.props;
     return (
-      <div>
-        {productDetail.productName}
-        <Button onClick={() => {
-          removeFromCart(productDetail)
-        }}>
-          Remove
+      <div className="margin-m bordered-box">
+        <div className="row">
+          <div className="col-6">{productDetail.productName}</div>
+          <div className="col-6">
+            <Button onClick={() => {
+              removeFromCart(productDetail)
+            }}>
+              Remove
         </Button>
+          </div>
+        </div>
       </div>
     );
   }

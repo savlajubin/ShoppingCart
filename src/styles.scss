@@ -9,4 +9,26 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
+  padding: 15px;
+}
+
+.bordered-box {
+  border: 1px solid #ccc;
+}
+
+.margin-m {
+  margin: 15px;
+}
+
+.margin-m-tb {
+  margin: 15px 0;
+}
+
+.card-img-top {
+  max-height: 150px;
+  width: auto;
+}
+
+.margin-s-b {
+  margin-bottom: 10px;
 }

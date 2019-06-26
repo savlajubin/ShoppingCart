@@ -15,10 +15,10 @@ class Content extends Component {
   render() {
     return (
       <div className="row">
-        <Col xs="9">
+        <Col sm="12" md="9">
           <ProductList />
         </Col>
-        <Col xs="3">
+        <Col sm="12" md="3">
           <Cart />
         </Col>
       </div>
